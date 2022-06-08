@@ -1,8 +1,18 @@
 import React from "react"
+import Button from "../components/Button"
+import { Link } from "react-router-dom"
 
 function LandingPage() {
     return (
-  	    <h1>Quizzical</h1>
+        <>
+            <h1>SwiftQuiz</h1>
+
+            <h2>how well do you know taylor?</h2>
+
+            <Link to="/quiz">
+                <Button text="Start quiz" />
+            </Link>
+        </>
     )
 }
 export default LandingPage
