@@ -31,4 +31,20 @@ button {
 
 .question {
   font-family: karla;
+  font-weight: 700;
+  font-size: 1rem;
 }
+
+.answers li {
+  display: inline;
+  margin: 10px;
+  border: 0.794239px solid #4D5B9E;
+  border-radius: 7.94239px;
+  font-weight: 500;
+  font-size: 0.7rem;
+  padding: 5px;
+}
+
+.selected-answer {
+  background: #D6DBF5;
+} 
