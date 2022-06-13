@@ -2,13 +2,33 @@ body {
   text-align: center;
   font-family: inter;
   font-weight: 300;
-  background-color: blue;
+  background: #F5F7FB;
+  margin: 0 150px;
+  color: #293264;
 }
 
 h1 {
   font-weight: 700;
+  font-family: karla;
 }
 
 h2 {
   font-weight: 300;
+}
+
+button {
+  background: #4D5B9E;
+  color: #F5F7FB;
+  border-radius: 15px;
+  width: 193px;
+  height: 52px;
+  margin-top: 50px;
+}
+
+.question-card {
+  border-bottom: 0.794239px solid #DBDEF0;
+}
+
+.question {
+  font-family: karla;
 }
