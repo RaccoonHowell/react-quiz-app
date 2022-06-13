@@ -9,25 +9,27 @@ function QuizPage() {
     React.useEffect(() => {
         fetch("https://opentdb.com/api.php?amount=5") 
             .then(res => res.json())
-            .then(data => {
-                setQuizData(data.results)
-            })
+            .then(data => setQuizData(data.results))
     }, []) 
 
-    const questions = quizData.map(obj => {
+    const questions = quizData.map(item => {
+        const questionId = nanoid()
+
+        console.log(item)
         return (
             <Question
-                key={nanoid}
-                questionObject={obj}
+                key={questionId}
+                item={item}
             />
         )
     })
+
     return (
         <>
   	        <section className="question-list">
                   {questions}
             </section>
-                       
+
             <Button text="check answers" />
         </>
     )
