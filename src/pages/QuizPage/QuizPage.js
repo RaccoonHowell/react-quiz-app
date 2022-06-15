@@ -32,33 +32,24 @@ function QuizPage() {
             })
     }, []) 
 
-    function handleSelect(id) {
+    function handleSelect(itemId, id) {
         // copy quizdata and set answer.selected to true
-        // setQuizData(prevData => prevData.answers.map(answer => {
-        //     return id === answer.id ? 
-        //         {...answer, selected: true} :
-        //         answer        
-
-        // }))
-        setQuizData(prevState => prevState.map(item => {
+          setQuizData(prevState => prevState.map(item => {
             const { answers } = item
-            return {
-                ...item,
-                answers: answers.map(answer => {
-                    return answer.id === id ?
-                        {...answer, selected: true} 
-                        :
-                        answer
-                })
-            }
-        }))
-        
-        console.log(id)
-        // setQuizData(prevData => prevData.map(item => {
-        //     return {...prevData, question: 'Test'}
-        // }))
 
-        // document.body.style.background = "red"
+            return item.id === itemId ?
+                {
+                    ...item, 
+                    answers: answers.map(answer => {
+                        return answer.id === id ?
+                            {...answer, selected: !answer.selected}
+                            :
+                            {...answer, selected: false}
+                    })
+                } 
+                : 
+                item
+        }))
     }
 
     const questionCards = quizData.map(item => {

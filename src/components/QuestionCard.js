@@ -1,5 +1,4 @@
 import React from "react"
-// import { nanoid } from "nanoid"
 
 function QuestionCard({ item, handleSelect }) {
     const answersHTML = item.answers.map(answerItem => {
@@ -7,7 +6,7 @@ function QuestionCard({ item, handleSelect }) {
             <li 
                 key={answerItem.id} 
                 className={answerItem.selected ? "selected-answer" : "answer" } 
-                onClick={() => handleSelect(answerItem.id)}
+                onClick={() => handleSelect(item.id, answerItem.id)}
             >
                 {answerItem.answer}
             </li>

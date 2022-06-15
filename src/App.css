@@ -45,9 +45,9 @@ button {
   border-radius: 8px;
   font-weight: 500;
   font-size: 0.7rem;
-  padding: 10px;
+  padding: 5px 10px;
 }
 
 .selected-answer {
-  color: red;
+  background: #D6DBF5
 } 
