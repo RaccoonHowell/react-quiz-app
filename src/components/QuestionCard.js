@@ -1,26 +1,15 @@
 import React from "react"
-import { nanoid } from "nanoid"
+// import { nanoid } from "nanoid"
 
-function QuestionCard({ item }) {
-    const [selected, setSelected] = React.useState(false)
-
-    function handleSelect() {
-        setSelected(true)
-    }
-   
-    const answersHTML = item.answers.map(answer => {
-        const answerId = nanoid()
-
+function QuestionCard({ item, handleSelect }) {
+    const answersHTML = item.answers.map(answerItem => {
         return (
             <li 
-                key={answerId} 
-                // className="answer"
-                selected={selected}
-            
-                className={selected ? "selected-answer" : "answer" } 
-                onClick={handleSelect}
+                key={answerItem.id} 
+                className={answerItem.selected ? "selected-answer" : "answer" } 
+                onClick={() => handleSelect(answerItem.id)}
             >
-                {answer}
+                {answerItem.answer}
             </li>
         )
     })
