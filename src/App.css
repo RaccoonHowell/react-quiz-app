@@ -1,22 +1,39 @@
+/* * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+} */
+
 body {
+  width: 80%;
+  max-width: 700px;
+  min-width: 300px;
+  margin: 0 auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
   text-align: center;
   font-family: inter;
   font-weight: 300;
   background: #F5F7FB;
-  margin: 0 150px;
+  /* margin: 0 150px; */
   color: #293264;
-  max-width: 700px;
-  margin: auto;
-  padding: 40px;
+  /* margin: auto; */
+  /* padding: 40px; */
 }
 
 h1 {
   font-weight: 700;
   font-family: karla;
+  margin-top: -50px;
 }
 
 h2 {
   font-weight: 300;
+  margin-top: 30px;
 }
 
 button {
@@ -25,7 +42,7 @@ button {
   border-radius: 15px;
   width: 193px;
   height: 52px;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .question-card {
@@ -39,13 +56,15 @@ button {
 }
 
 .answers li {
-  display: inline;
+  display: inline-block;
   margin: 10px;
   border: 0.8px solid #4D5B9E;
   border-radius: 8px;
   font-weight: 500;
   font-size: 0.7rem;
   padding: 5px 10px;
+  min-width: 40px;
+  /* max-width: 100px; */
 }
 
 .selected-answer {
