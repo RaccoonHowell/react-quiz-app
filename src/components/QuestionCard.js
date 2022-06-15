@@ -1,15 +1,27 @@
 import React from "react"
 import { nanoid } from "nanoid"
-import { shuffle } from "./utils"
 
-function Question({ item }) {
-    const all_answers_shuffled = shuffle([...item.incorrect_answers, item.correct_answer])
+function QuestionCard({ item }) {
+    const [selected, setSelected] = React.useState(false)
 
-    const answersHTML = all_answers_shuffled.map(answer => {
+    function handleSelect() {
+        setSelected(true)
+    }
+   
+    const answersHTML = item.answers.map(answer => {
         const answerId = nanoid()
 
         return (
-            <li key={answerId} className="answer">{answer}</li>
+            <li 
+                key={answerId} 
+                // className="answer"
+                selected={selected}
+            
+                className={selected ? "selected-answer" : "answer" } 
+                onClick={handleSelect}
+            >
+                {answer}
+            </li>
         )
     })
 
@@ -24,7 +36,7 @@ function Question({ item }) {
     )
 }
 
-export default Question
+export default QuestionCard
 
 // category: "Geography"
 // correct_answer: "False"

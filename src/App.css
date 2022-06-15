@@ -5,6 +5,9 @@ body {
   background: #F5F7FB;
   margin: 0 150px;
   color: #293264;
+  max-width: 700px;
+  margin: auto;
+  padding: 40px;
 }
 
 h1 {
@@ -38,13 +41,13 @@ button {
 .answers li {
   display: inline;
   margin: 10px;
-  border: 0.794239px solid #4D5B9E;
-  border-radius: 7.94239px;
+  border: 0.8px solid #4D5B9E;
+  border-radius: 8px;
   font-weight: 500;
   font-size: 0.7rem;
-  padding: 5px;
+  padding: 10px;
 }
 
 .selected-answer {
-  background: #D6DBF5;
+  color: red;
 } 
