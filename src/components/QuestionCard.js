@@ -2,22 +2,20 @@ import React from "react"
 
 function QuestionCard({ item, handleSelect }) {
     const answersHTML = item.answers.map(answerItem => {
+
         return (
             <li 
                 key={answerItem.id} 
                 className={answerItem.selected ? "selected-answer" : "answer" } 
                 onClick={() => handleSelect(item.id, answerItem.id)}
-            >
-                {answerItem.answer}
-            </li>
+                dangerouslySetInnerHTML={{__html: answerItem.answer}}
+            />   
         )
     })
-
-    const questionString = `<p>${item.question}</p>`
     
     return (
         <div className="question-card">
-            <div className="question" dangerouslySetInnerHTML={{__html: questionString}}/>
+            <p className="question" dangerouslySetInnerHTML={{__html: item.question}}/>
      
             <ul className="answers">
                 {answersHTML}
