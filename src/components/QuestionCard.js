@@ -1,25 +1,14 @@
 import React from "react"
+import { getClassName } from "./utils"
 
 function QuestionCard({ item, handleSelect, submittedAnswers }) {
     const answersHTML = item.answers.map(answerItem => {
-        function getClassName() {
-            if (answerItem.selected && !submittedAnswers) {
-                return "selected-answer"
-            } else if (submittedAnswers && answerItem.answer === item.correctAnswer) {
-                return "correct-answer"
-            } else if (submittedAnswers && answerItem.selected && answerItem.answer !== item.correctAnswer) {
-                return "incorrect-answer"
-            } else {
-                return ""
-            }
-        }
-
-        const whatClass = getClassName()
+         const classname = getClassName(answerItem, item, submittedAnswers)
 
         return (
             <li 
                 key={answerItem.id} 
-                className={whatClass} 
+                className={classname} 
                 onClick={() => handleSelect(item.id, answerItem.id)}
                 dangerouslySetInnerHTML={{__html: answerItem.answer}}
             />   
