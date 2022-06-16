@@ -63,3 +63,11 @@ button {
 ul {
   padding-inline-start: 0;
 }
+
+.correct-answer {
+  background-color: #94D7A2;
+}
+
+.incorrect-answer {
+  background-color: red;
+}

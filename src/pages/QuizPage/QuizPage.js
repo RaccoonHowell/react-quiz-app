@@ -6,6 +6,7 @@ import QuestionCard from "../../components/QuestionCard"
 
 function QuizPage() { 
     const [quizData, setQuizData] = React.useState([])
+    const [submittedAnswers, setSubmittedAnswers] = React.useState(false)
    
     React.useEffect(() => {
         fetch("https://opentdb.com/api.php?amount=5") 
@@ -26,12 +27,12 @@ function QuizPage() {
                                 id: nanoid(),
                                 selected: false
                             })),
-                        correctAnswer: correct_answer
+                        correctAnswer: correct_answer,
                     }
                 }))
             })
     }, []) 
-
+      
     function handleSelect(itemId, id) {
           setQuizData(prevState => prevState.map(item => {
             const { answers } = item
@@ -53,6 +54,7 @@ function QuizPage() {
 
     function handleSubmit() {
         console.log('submit')
+        setSubmittedAnswers(true)
     }
 
     const questionCards = quizData.map(item => {
@@ -62,6 +64,7 @@ function QuizPage() {
                 key={item.id}
                 item={item}
                 handleSelect={handleSelect}
+                submittedAnswers={submittedAnswers}
             />
         )
     })

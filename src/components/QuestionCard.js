@@ -1,12 +1,25 @@
 import React from "react"
 
-function QuestionCard({ item, handleSelect }) {
+function QuestionCard({ item, handleSelect, submittedAnswers }) {
     const answersHTML = item.answers.map(answerItem => {
+        function getClassName() {
+            if (answerItem.selected && !submittedAnswers) {
+                return "selected-answer"
+            } else if (submittedAnswers && answerItem.answer === item.correctAnswer) {
+                return "correct-answer"
+            } else if (submittedAnswers && answerItem.selected && answerItem.answer !== item.correctAnswer) {
+                return "incorrect-answer"
+            } else {
+                return ""
+            }
+        }
+
+        const whatClass = getClassName()
 
         return (
             <li 
                 key={answerItem.id} 
-                className={answerItem.selected ? "selected-answer" : "answer" } 
+                className={whatClass} 
                 onClick={() => handleSelect(item.id, answerItem.id)}
                 dangerouslySetInnerHTML={{__html: answerItem.answer}}
             />   
@@ -25,10 +38,3 @@ function QuestionCard({ item, handleSelect }) {
 }
 
 export default QuestionCard
-
-// category: "Geography"
-// correct_answer: "False"
-// difficulty: "easy"
-// incorrect_answers: ['True']
-// question: "Greenland is covered with grass and Iceland covered with ice."
-// type: "boolean"
