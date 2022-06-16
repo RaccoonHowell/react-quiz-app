@@ -13,10 +13,12 @@ function QuestionCard({ item, handleSelect }) {
         )
     })
 
+    const questionString = `<p>${item.question}</p>`
+    
     return (
         <div className="question-card">
-            <p className="question">{item.question}</p>
-
+            <div className="question" dangerouslySetInnerHTML={{__html: questionString}}/>
+     
             <ul className="answers">
                 {answersHTML}
             </ul>

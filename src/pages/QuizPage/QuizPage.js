@@ -33,7 +33,6 @@ function QuizPage() {
     }, []) 
 
     function handleSelect(itemId, id) {
-        // copy quizdata and set answer.selected to true
           setQuizData(prevState => prevState.map(item => {
             const { answers } = item
 
@@ -50,6 +49,10 @@ function QuizPage() {
                 : 
                 item
         }))
+    }
+
+    function handleSubmit() {
+        console.log('submit')
     }
 
     const questionCards = quizData.map(item => {
@@ -69,7 +72,7 @@ function QuizPage() {
                   {questionCards}
             </section>
 
-            <Button text="check answers" />
+            <Button handleSubmit={handleSubmit} text="check answers" />
         </>
     )
 }
