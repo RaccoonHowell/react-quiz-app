@@ -77,12 +77,13 @@ function QuizPage() {
                   {questionCards}
             </section>
 
-            <Button handleSubmit={handleSubmit} text="check answers" />
-
             {submittedAnswers ? 
-                <p>You scored {correctAnswerCount}/5 correct answers</p> 
+                <section>
+                    <p>You scored {correctAnswerCount}/5 correct answers</p> 
+                    <Button  text="play again" />
+                </section>
                 : 
-                ""
+                <Button handleClick={handleSubmit} text="check answers" />
             }
         </>
     )

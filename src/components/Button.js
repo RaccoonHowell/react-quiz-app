@@ -1,8 +1,8 @@
 import React from "react"
 
-function Button({ text, handleSubmit }) {
+function Button({ text, handleClick }) {
     return (            
-        <button onClick={handleSubmit}>{text}</button>   
+        <button onClick={handleClick}>{text}</button>   
     )
 }
 
