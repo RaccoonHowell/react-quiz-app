@@ -2,6 +2,7 @@ import React from "react"
 import Button from "../../components/Button"
 import { nanoid } from "nanoid"
 import { shuffle } from "../../components/utils"
+import { getCount } from "../../components/utils"
 import QuestionCard from "../../components/QuestionCard"
 
 function QuizPage() { 
@@ -54,24 +55,12 @@ function QuizPage() {
     }
 
     function handleSubmit() {
-        console.log('submit')
         setSubmittedAnswers(true)
-        // go over each item check if selected answer = correct answer and if so setcorrectanswercount += 1
-        quizData.forEach(questionObject => {
-            questionObject.answers.forEach(answerItem => {
-                const { selected, answer } = answerItem
-                if (selected && answer === questionObject.correctAnswer) {
-                    setCorrectAnswerCount(prevCount => prevCount + 1)
-            }
-                // console.log(selected)
-                
-            })
-        })
-         
+
+        getCount(quizData, setCorrectAnswerCount)
     }
 
     const questionCards = quizData.map(item => {
-        // console.log(item)
         return (
             <QuestionCard
                 key={item.id}
@@ -91,9 +80,20 @@ function QuizPage() {
             <Button handleSubmit={handleSubmit} text="check answers" />
 
             {submittedAnswers ? 
-                <p>You scored {correctAnswerCount}/5 correct answers</p> : ""}
+                <p>You scored {correctAnswerCount}/5 correct answers</p> 
+                : 
+                ""
+            }
         </>
     )
 }
 
 export default QuizPage
+
+// move getting the count to a function and to util? - SHOULD FUNCTIONS USING STATE
+// BE IN UTILS? OR STAY IN MAIN COMPONENT
+
+// have it return a gamefinished state to put in useeffect to fetch new questions
+// if playing again
+
+// fix page load delay

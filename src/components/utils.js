@@ -14,3 +14,15 @@ export function getClassName(answerItem, item, submittedAnswers) {
         return "incorrect-answer"
     } 
 }
+
+export function getCount(array, setCorrectAnswerCount) {
+    array.forEach(questionObject => {
+        questionObject.answers.forEach(answerItem => {
+            const { selected, answer } = answerItem
+
+            if (selected && answer === questionObject.correctAnswer) {
+                setCorrectAnswerCount(prevCount => prevCount + 1)
+            }
+        })
+    })
+}
