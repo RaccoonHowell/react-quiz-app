@@ -67,9 +67,31 @@ function QuizPage() {
         })
     }
 
+    function checkAnswerSelected() {
+        const arrayOfSelected = []
+
+        quizData.forEach(questionObject => {
+            questionObject.answers.forEach(answer => {
+                if(answer.selected) {
+                    arrayOfSelected.push(questionObject)
+                }
+            })
+        })
+
+        return arrayOfSelected.length === 5
+    }
+
     function handleSubmit() {
-        setSubmittedAnswers(true)
-        getCount()
+        const allQuestionsAnswered = checkAnswerSelected()
+         
+        if(allQuestionsAnswered){
+            setSubmittedAnswers(true)
+            getCount()
+     
+        } else {
+            console.log('no')
+        }
+        // console.log('handle submitted')
     }
     
     function handlePlayAgain() {
