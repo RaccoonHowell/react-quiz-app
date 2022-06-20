@@ -1,10 +1,10 @@
 import React from "react"
-import Button from "../../components/Button"
+import Button from "../components/Button"
 import { useState } from "react"
 import { useEffect } from "react"
 import { nanoid } from "nanoid"
-import { shuffle } from "../../components/utils"
-import QuestionCard from "../../components/QuestionCard"
+import { shuffle } from "../utils"
+import QuestionCard from "../components/QuestionCard"
 
 function QuizPage() { 
     const [quizData, setQuizData] = useState([])
@@ -107,11 +107,5 @@ function QuizPage() {
 }
 
 export default QuizPage
-
-// move getting the count to a function and to util? - SHOULD FUNCTIONS USING STATE
-// BE IN UTILS? OR STAY IN MAIN COMPONENT
-
-// have it return a gamefinished state to put in useeffect to fetch new questions
-// if playing again
 
 // fix page load delay

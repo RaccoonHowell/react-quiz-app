@@ -1,6 +1,6 @@
 import './App.css';
-import LandingPage from "./pages/LandingPage/LandingPage"
-import QuizPage from "./pages/QuizPage/QuizPage"
+import LandingPage from "./pages/LandingPage"
+import QuizPage from "./pages/QuizPage"
 import {Route, Routes, BrowserRouter as Router} from "react-router-dom"
 
 function App() {
