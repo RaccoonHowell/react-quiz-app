@@ -14,13 +14,13 @@ describe("QuizPage component", () => {
         expect(buttonElement).toBeInTheDocument()
     })
 
-    it("changes to play again button when check answers button is clicked", () => {
-        render(<QuizPage />)
+    // it("changes to play again button when check answers button is clicked", () => {
+    //     render(<QuizPage />)
 
-        const checkAnswersButton = screen.getByText(/check answers/i)
+    //     const checkAnswersButton = screen.getByText(/check answers/i)
                
-        fireEvent.click(checkAnswersButton)
+    //     fireEvent.click(checkAnswersButton)
 
-        expect(screen.getByText(/play again/i)).toBeInTheDocument()
-    })
+    //     expect(screen.getByText(/play again/i)).toBeInTheDocument()
+    // })
 })
