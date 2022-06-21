@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 function LandingPage() {
     return (
         <>
-            <h1>QUIZZICAL</h1>
+            <h1>QUIZ</h1>
 
             <h2>random multiple choice questions</h2>
 
