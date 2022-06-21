@@ -67,7 +67,7 @@ function QuizPage() {
         })
     }
 
-    function checkAnswerSelected() {
+    function checkAllQuestionsAnswered() {
         const arrayOfSelected = []
 
         quizData.forEach(questionObject => {
@@ -82,16 +82,13 @@ function QuizPage() {
     }
 
     function handleSubmit() {
-        const allQuestionsAnswered = checkAnswerSelected()
-         
-        if(allQuestionsAnswered){
+        if(checkAllQuestionsAnswered()){
             setSubmittedAnswers(true)
             getCount()
      
         } else {
-            console.log('no')
+            alert('ANSWER ALL THE QUESTIONS!')
         }
-        // console.log('handle submitted')
     }
     
     function handlePlayAgain() {
@@ -116,7 +113,7 @@ function QuizPage() {
             </section>
 
             {submittedAnswers ? 
-                <section>
+                <section className="answer-section">
                     <p>You scored {correctAnswerCount}/5 correct answers</p> 
 
                     <Button handleClick={handlePlayAgain} text="play again" />
@@ -131,3 +128,5 @@ function QuizPage() {
 export default QuizPage
 
 // fix page load delay
+
+//alert box ok?
