@@ -114,9 +114,9 @@ function QuizPage() {
 
             {submittedAnswers ? 
                 <section className="answer-section">
-                    <p>You scored {correctAnswerCount}/5 correct answers</p> 
+                    <p className="score">You scored {correctAnswerCount}/5 correct answers</p> 
 
-                    <Button handleClick={handlePlayAgain} text="play again" />
+                    <Button classname="play-again-button" handleClick={handlePlayAgain} text="play again" />
                 </section>
                 : 
                 <Button handleClick={handleSubmit} text="check answers" />
