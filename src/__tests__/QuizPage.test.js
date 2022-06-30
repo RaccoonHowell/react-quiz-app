@@ -6,7 +6,7 @@ jest.mock("nanoid", () => {
 })
 
 describe("QuizPage component", () => {
-    it("renders play again button", () => {
+    it("renders check answers button", () => {
         render(<QuizPage />)
 
         const buttonElement = screen.getByText(/check answers/i)
